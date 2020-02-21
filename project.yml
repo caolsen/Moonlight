@@ -1,0 +1,27 @@
+name: Moonlight
+attributes:
+  ORGANIZATIONNAME: Christopher Olsen
+options:
+  bundleIdPrefix: com.caolsen
+  deploymentTarget:
+    iOS: "13.0"
+  groupSortPosition: top
+  minimumXcodeGenVersion: 2.7.0
+
+targets:
+  Moonlight:
+    scheme:
+      testTargets:
+        - MoonlightTests
+    platform: iOS
+    type: application
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: "1" #iPhone
+        CURRENT_PROJECT_VERSION: 1
+    sources: Moonlight
+
+  MoonlightTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources: MoonlightTests
