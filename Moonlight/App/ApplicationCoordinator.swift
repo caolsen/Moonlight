@@ -27,7 +27,7 @@ class ApplicationCoordinator: OverlordCoordinator {
     
     func start() {
         window.rootViewController = rootViewController
-//        characterListCoordinator.start()
+        characterListCoordinator.start()
         window.makeKeyAndVisible()
     }
 }
