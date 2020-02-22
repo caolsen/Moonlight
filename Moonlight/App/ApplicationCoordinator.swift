@@ -10,17 +10,24 @@ import UIKit
 
 class ApplicationCoordinator: OverlordCoordinator {
     private let window: UIWindow
-    private let rootViewController: UIViewController
+    private let rootViewController: UINavigationController
+    
+    private let characterStorage: CharacterStorage
+    
+    private let characterListCoordinator: CharacterListCoordinator
     
     init(window: UIWindow) {
         self.window = window
-        self.rootViewController = UIViewController()
+        self.rootViewController = UINavigationController()
+        self.characterStorage = CharacterStorage()
+        self.characterListCoordinator = CharacterListCoordinator(presenter: rootViewController, characterStorage: characterStorage)
         
-        rootViewController.view.backgroundColor = .cyan
+        rootViewController.navigationBar.prefersLargeTitles = true
     }
     
     func start() {
         window.rootViewController = rootViewController
+//        characterListCoordinator.start()
         window.makeKeyAndVisible()
     }
 }
