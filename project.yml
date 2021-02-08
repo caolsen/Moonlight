@@ -20,8 +20,3 @@ targets:
         TARGETED_DEVICE_FAMILY: "1" #iPhone
         CURRENT_PROJECT_VERSION: 1
     sources: Moonlight
-
-  MoonlightTests:
-    platform: iOS
-    type: bundle.unit-test
-    sources: MoonlightTests
