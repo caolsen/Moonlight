@@ -1,0 +1,39 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Create keychain for Github Actions"
+  lane :setup_keychain do
+    create_keychain(
+      name: "ci_keychain",
+      password: "meow",
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: false
+    )
+  end
+
+  lane :clone_match do
+    api_key = app_store_connect_api_key(
+      key_id: ENV["APPLE_KEY_ID"],
+      issuer_id: ENV["APPLE_ISSUER_ID"],
+      key_content: ENV["APPLE_API_KEY"],
+      in_house: false,
+    )
+
+    match(
+      type: "appstore",
+      api_key: api_key,
+      git_basic_authorization: ENV["MATCH_PAT"],
+      git_url: ENV["MATCH_REPO"],
+      readonly: true,
+      keychain_name: "ci_keychain",
+      keychain_password: "meow"
+    )
+  end
+
+  desc "Description of what the lane does"
+  lane :build do
+    build_app
+  end
+end
