@@ -1,0 +1,22 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Create keychain for Github Actions"
+  lane :setup_keychain do
+    create_keychain(
+      name: "ci_keychain",
+      password: "meow",
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: false
+    )
+  end
+
+  desc "Description of what the lane does"
+  lane :build do
+    match(api_key_path: ENV["API_KEY_JSON"])
+
+    build_app(scheme: "Moonlight")
+  end
+end
