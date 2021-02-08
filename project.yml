@@ -21,6 +21,6 @@ targets:
         Debug:
           PROVISIONING_PROFILE_SPECIFIER: "match Development com.caolsen.Moonlight"
         Release:
-          CODE_SIGN_IDENTITY: "Christopher Olsen"
+          CODE_SIGN_IDENTITY: "Apple Distribution"
           PROVISIONING_PROFILE_SPECIFIER: "match AppStore com.caolsen.Moonlight"
     sources: Moonlight
