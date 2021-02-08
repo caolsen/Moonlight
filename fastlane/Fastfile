@@ -15,7 +15,12 @@ platform :ios do
 
   desc "Description of what the lane does"
   lane :build do
-    match(api_key_path: ENV["API_KEY_JSON"])
+    match(
+      api_key_path: ENV["API_KEY_JSON"],
+      readonly: true,
+      keychain_name: "ci_keychain",
+      keychain_password: "meow"
+    )
 
     build_app(scheme: "Moonlight")
   end
