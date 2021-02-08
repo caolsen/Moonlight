@@ -22,20 +22,14 @@ jobs:
           xcodegen generate
 
       - name: Fastlane setup
-      env:
-        APPLE_ACCOUNT: ${{ secrets.APPLE_ACCOUNT }}
-        TEAM_ID: ${{ secrets.TEAM_ID }}
-      run: |
-        fastlane setup_keychain --verbose
+        run: |
+          fastlane setup_keychain --verbose
 
       - name: Build
         env:
           destination: ${{ matrix.destination }}
           DEVELOPER_DIR: ${{ matrix.xcode }}
-          MATCH_REPO: ${{ secrets.MATCH_REPO }}
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASS }}
-          SIGNING_ID: ${{ secrets.SIGNING_ID }}
-          APPLE_ACCOUNT: ${{ secrets.APPLE_ACCOUNT }}
-          TEAM_ID: ${{ secrets.TEAM_ID }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          API_KEY_JSON: ${{ secrets.API_KEY_JSON }}
         run: |
           fastlane build --verbose
