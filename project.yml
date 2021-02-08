@@ -17,4 +17,7 @@ targets:
         DEVELOPMENT_TEAM: GDEYN6H976
         TARGETED_DEVICE_FAMILY: "1" #iPhone
         CURRENT_PROJECT_VERSION: 1
+      configs:
+        Debug:
+          PROVISIONING_PROFILE_SPECIFIER: "match Development com.caolsen.Moonlight"
     sources: Moonlight
