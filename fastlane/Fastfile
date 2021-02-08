@@ -13,8 +13,7 @@ platform :ios do
     )
   end
 
-  desc "Description of what the lane does"
-  lane :build do
+  lane: clone_match do
     api_key = app_store_connect_api_key(
       key_id: ENV["APPLE_KEY_ID"],
       issuer_id: ENV["APPLE_ISSUER_ID"],
@@ -30,7 +29,10 @@ platform :ios do
       keychain_name: "ci_keychain",
       keychain_password: "meow"
     )
+  end
 
+  desc "Description of what the lane does"
+  lane :build do
     build_app(scheme: "Moonlight")
   end
 end

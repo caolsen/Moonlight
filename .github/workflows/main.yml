@@ -13,25 +13,30 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.1.0
-        
-      - name: Install and run xcodegen
-        run: |
-          brew install xcodegen
-          xcodegen generate
-
+      
       - name: Fastlane setup
         run: |
           fastlane setup_keychain --verbose
 
-      - name: Build
+      - name: Clone Match
         env:
-          destination: ${{ matrix.destination }}
-          DEVELOPER_DIR: ${{ matrix.xcode }}
           MATCH_REPO: ${{ secrets.MATCH_REPO }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           MATCH_PAT: ${{ secrets.MATCH_PAT }}
           APPLE_KEY_ID: ${{ secrets.APPLE_KEY_ID }}
           APPLE_ISSUER_ID: ${{ secrets.APPLE_ISSUER_ID }}
           APPLE_API_KEY: ${{ secrets.APPLE_API_KEY }}
+        run:
+          fastlane clone_match --verbose
+
+      - name: Install and run xcodegen
+        run: |
+          brew install xcodegen
+          xcodegen generate
+    
+      - name: Build
+        env:
+          destination: ${{ matrix.destination }}
+          DEVELOPER_DIR: ${{ matrix.xcode }}
         run: |
           fastlane build --verbose
