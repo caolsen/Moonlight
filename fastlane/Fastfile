@@ -34,6 +34,6 @@ platform :ios do
 
   desc "Description of what the lane does"
   lane :build do
-    build_app(scheme: "Moonlight")
+    build_app
   end
 end
