@@ -10,9 +10,6 @@ options:
 
 targets:
   Moonlight:
-    scheme:
-      testTargets:
-        - MoonlightTests
     platform: iOS
     type: application
     settings:
