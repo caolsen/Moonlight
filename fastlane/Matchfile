@@ -1,4 +1,3 @@
-git_url("git@github.com:caolsen/fastlane_match.git")
 storage_mode("git")
 type("development")
 app_identifier(["com.caolsen.Moonlight"])

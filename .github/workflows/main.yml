@@ -27,6 +27,7 @@ jobs:
         env:
           destination: ${{ matrix.destination }}
           DEVELOPER_DIR: ${{ matrix.xcode }}
+          MATCH_REPO: ${{ secrets.MATCH_REPO }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           MATCH_PAT: ${{ secrets.MATCH_PAT }}
           APPLE_KEY_ID: ${{ secrets.APPLE_KEY_ID }}
