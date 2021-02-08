@@ -16,6 +16,16 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
+### ios setup_keychain
+```
+fastlane ios setup_keychain
+```
+Create keychain for Github Actions
+### ios clone_match
+```
+fastlane ios clone_match
+```
+
 ### ios build
 ```
 fastlane ios build

@@ -22,6 +22,7 @@ platform :ios do
     )
 
     match(
+      type: "appstore",
       api_key: api_key,
       git_basic_authorization: ENV["MATCH_PAT"],
       git_url: ENV["MATCH_REPO"],
