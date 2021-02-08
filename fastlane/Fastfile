@@ -25,6 +25,7 @@ platform :ios do
     match(
       api_key: api_key,
       git_basic_authorization: ENV["MATCH_PAT"],
+      git_url: ENV["MATCH_REPO"],
       readonly: true,
       keychain_name: "ci_keychain",
       keychain_password: "meow"
